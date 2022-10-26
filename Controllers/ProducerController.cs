@@ -22,8 +22,7 @@ namespace ApacheKafkaProducerDemo.Controllers
             string message = JsonSerializer.Serialize(orderRequest);
             return Ok(await SendOrderRequest(_topic, message));
         }
-        private async Task<bool> SendOrderRequest
-        (string topic, string message)
+        private async Task<bool> SendOrderRequest(string topic, string message)
         {
             ProducerConfig config = new ProducerConfig
             {
@@ -42,8 +41,8 @@ namespace ApacheKafkaProducerDemo.Controllers
                         Value = message
                     });
 
-                    Debug.WriteLine($"Delivery Timestamp:{ result.Timestamp.UtcDateTime}");
-                return await Task.FromResult(true);
+                    Debug.WriteLine($"Delivery Timestamp:{result.Timestamp.UtcDateTime}");
+                    return await Task.FromResult(true);
                 }
             }
             catch (Exception ex)
@@ -55,4 +54,4 @@ namespace ApacheKafkaProducerDemo.Controllers
         }
     }
 }
-    
+

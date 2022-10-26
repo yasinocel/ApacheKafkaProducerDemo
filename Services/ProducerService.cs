@@ -7,7 +7,7 @@ namespace ApacheKafkaProducerDemo.Services
     public class ProducerService : IProducerService
     {
         private readonly string _bootstrapServers = "localhost:9092";
-        private readonly string _topic = "testtopic1";
+        private readonly string _topic = "testtopic2";
 
         public async Task<bool> Produce(string message)
         {
